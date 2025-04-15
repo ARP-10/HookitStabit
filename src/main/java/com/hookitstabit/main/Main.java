@@ -7,12 +7,7 @@ public class Main {
     public static void main(String[] args) {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-        Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setEmail("crochetera@hookit.com");
-        nuevoUsuario.setPassword("1234seguro");
-
-        usuarioDAO.crearUsuario(nuevoUsuario);
-
-        System.out.println("Usuario guardado con ID: " + nuevoUsuario.getId());
+        System.out.println("Todos los usuarios: " + usuarioDAO.obtenerUsuarios());
+        System.out.println("Usuario con el id 1: " + usuarioDAO.obtenerUsuariosId(1));
     }
 }

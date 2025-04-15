@@ -18,4 +18,13 @@ public class Usuario {
     private String email;
     @Column(nullable = false)
     private String password;
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "ID: " + id +
+                ", Email: " + email + '\'' +
+                ", Password: " + password + '\'' +
+                '}';
+    }
 }
