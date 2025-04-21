@@ -4,7 +4,6 @@ import lombok.*;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 @Getter
 @Setter
@@ -12,12 +11,13 @@ import java.sql.Date;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "compras")
-public class Compra {
+@Table(name = "detalle_compra")
+public class Detalle_carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date fecha;
+    @Column(nullable = false)
+    private  int cantidad;
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal precio_total;
+    private BigDecimal precio_unitario;
 }
