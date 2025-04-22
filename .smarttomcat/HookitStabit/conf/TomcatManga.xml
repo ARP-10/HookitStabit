@@ -1,0 +1,5 @@
+<configuration>
+    <context-path>/TomcatManga</context-path>
+    <doc-base>C:/Users/java/Desktop/apache-tomcat-9.0.102/webapps/TomcatManga</doc-base>
+    <reloadable>true</reloadable>
+</configuration>
