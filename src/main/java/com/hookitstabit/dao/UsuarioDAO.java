@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class UsuarioDAO {
-// Hacer un interfaz dependiendo de lo que pueda hacer el usuario ej.
 // Crear
     public void crearUsuario(Usuario usuario) {
         Transaction transaction = null;

@@ -12,7 +12,7 @@ import java.sql.Date;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "compras")
+@Table(name = "carrito")
 public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

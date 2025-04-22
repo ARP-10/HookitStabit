@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CategoriaDAO {
     // Leer todas las categorias
-    public List<Categoria> obtenterCategorias() {
+    public List<Categoria> obtenerCategorias() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("FROM Categoria", Categoria.class).list();
         }
