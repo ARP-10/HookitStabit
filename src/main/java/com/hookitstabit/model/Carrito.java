@@ -21,3 +21,5 @@ public class Carrito {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precio_total;
 }
+// llamar transaccion a la compra/venta
+//en detalle compra meter el nombre de producto y quitar la relacion (venta seria como una factura)
