@@ -23,6 +23,11 @@ public class CategoriaController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Configuración de encabezados para CORS
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Permite solicitudes desde cualquier origen
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Métodos permitidos
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
         response.setContentType(APPLICATION_JSON);
         PrintWriter out = response.getWriter();
 
