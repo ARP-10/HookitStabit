@@ -22,6 +22,7 @@ public class Usuario {
     @NotBlank(message = "El email es obligatorio")
     @Size(max = 100, message = "El email no puede tener mas de 100 caracteres")
     @Column(nullable = false, length = 100)
+    @jakarta.validation.constraints.Email
     private String email;
     @NotBlank(message = "La contraseña es obligatoria")
     @Column(nullable = false)
