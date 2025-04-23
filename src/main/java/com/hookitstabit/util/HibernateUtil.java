@@ -16,6 +16,7 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
+        System.out.println("Conexión exitosa: " + HibernateUtil.getSessionFactory());
         return sessionFactory;
     }
 }

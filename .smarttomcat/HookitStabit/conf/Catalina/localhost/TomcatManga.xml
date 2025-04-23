@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Context docBase="C:\Users\java\Desktop\apache-tomcat-9.0.102\webapps">
-  <Resources cacheMaxSize="10240">
-    <PreResources base="C:/Users/java/IdeaProjects/CatalogoManga/out/production/ProyectoDAO" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
-    <PostResources base="C:/Users/java/Downloads/mysql-connector-j-9.2.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-9.2.0.jar"/>
-    <PostResources base="C:/Users/java/Downloads/lombok.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/lombok.jar"/>
-    <PostResources base="C:/Users/java/Desktop/catalina.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/catalina.jar"/>
-  </Resources>
-</Context>
