@@ -2,6 +2,7 @@
   "name": "react-hookitstabit",
   "version": "0.1.0",
   "private": true,
+  "homepage": "localhost:8080/HookitStabit",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
