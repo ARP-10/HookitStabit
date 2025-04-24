@@ -23,8 +23,6 @@ public class CategoriaController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/plain");
-        response.getWriter().write("Servlet OK");
 
         response.setContentType(APPLICATION_JSON);
         PrintWriter out = response.getWriter();

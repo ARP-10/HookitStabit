@@ -88,84 +88,16 @@
       <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>jakarta.json.bind</groupId>
+      <artifactId>jakarta.json.bind-api</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+
+
+
   </dependencies>
   <build>
     <finalName>HookitStabit</finalName>
-
-    <plugins>
-      <!-- Plugin para compilar el proyecto React -->
-      <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <version>1.14.1</version>
-
-        <configuration>
-          <nodeVersion>v18.17.0</nodeVersion>
-          <npmVersion>9.6.7</npmVersion>
-          <installDirectory>${project.build.directory}/node</installDirectory>
-        </configuration>
-        <executions>
-          <!-- Instala Node y npm -->
-          <execution>
-            <id>install-node-and-npm</id>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-            <configuration>
-              <nodeVersion>v18.17.0</nodeVersion>
-              <npmVersion>9.6.7</npmVersion>
-            </configuration>
-          </execution>
-
-          <!-- Ejecuta npm install -->
-          <execution>
-            <id>npm-install</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>install</arguments>
-              <workingDirectory>src/main/webapp/react-hookitstabit</workingDirectory>
-            </configuration>
-          </execution>
-
-          <!-- Ejecuta npm run build -->
-          <execution>
-            <id>npm-run-build</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run build</arguments>
-              <workingDirectory>src/main/webapp/react-hookitstabit</workingDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Plugin para copiar archivos de build a webapp -->
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version>
-        <executions>
-          <execution>
-            <id>copy-react-build</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.basedir}/src/main/webapp</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>${project.basedir}/src/main/webapp/react-hookitstabit/build</directory>
-                  <filtering>false</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 </project>
