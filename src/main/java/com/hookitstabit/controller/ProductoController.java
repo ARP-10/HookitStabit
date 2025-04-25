@@ -37,6 +37,7 @@ public class ProductoController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType(APPLICATION_JSON);
         try {
+            // TODO: Asegurarnos que categoria entra sin problemas, es donde da error
             // Leer la petición
             Producto producto = JSONB.fromJson(request.getReader(), Producto.class);
             DAO.crearProducto(producto);
