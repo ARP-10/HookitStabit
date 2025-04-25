@@ -35,7 +35,20 @@ public class ProductoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType(APPLICATION_JSON);
+        try {
+            // Leer la petición
+            Producto producto = JSONB.fromJson(request.getReader(), Producto.class);
+            DAO.crearProducto(producto);
 
+            // Responder
+            response.setStatus(HttpServletResponse.SC_CREATED);
+            response.getWriter().write("{\"message\": \"Producto creado con éxito\"}");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("{\"error\": \"Error al crear el producto\"}");
+        }
     }
 
 }
