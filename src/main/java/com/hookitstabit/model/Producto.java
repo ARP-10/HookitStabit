@@ -30,12 +30,4 @@ public class Producto {
     @NotNull(message = "El precio es obligatorio")
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precio;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false) // EAGER -> cuando cargamos un producto, hibernate carga la categoria en ese momento
-    @JoinColumn(name = "id_categoria", nullable = false)
-    @NotNull(message = "La categoría es obligatoria")
-    private Categoria categoria;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id_usuario", nullable = false)
-    @NotNull(message = "Usuario obligatorio")
-    private Usuario usuario;
 }

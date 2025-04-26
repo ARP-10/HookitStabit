@@ -38,8 +38,4 @@ public class CategoriaController extends HttpServlet {
 
     }
 
-    @Override
-    public void init() {
-        System.out.println(">>> CategoriaController init() called");
-    }
 }

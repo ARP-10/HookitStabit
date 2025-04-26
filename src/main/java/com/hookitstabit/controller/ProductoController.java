@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/api/productos")
+@WebServlet("/api/productos/*")
 public class ProductoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String APPLICATION_JSON = "application/json";
@@ -27,29 +27,33 @@ public class ProductoController extends HttpServlet {
         response.setContentType(APPLICATION_JSON);
         PrintWriter out = response.getWriter();
 
-        List<Producto> productos = DAO.obtenterProductos();
-                String json = JSONB.toJson(productos);
+        String idParam = request.getParameter("id");
+        if (idParam != null) {
+            try {
+                int id = Integer.parseInt(idParam);
+                Producto producto = DAO.obtenerProductosId(id);
 
-        out.write(json);
+                if (producto != null) {
+                    String json = JSONB.toJson(producto);
+                    out.write(json);
+                } else {
+                    response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                    out.write("{\"error\":\"Producto no encontrado\"}");
+                }
+            } catch (NumberFormatException e) {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                out.write("{\"error\":\"ID inválido\"}");
+            }
+        } else {
+            List<Producto> productos = DAO.obtenterProductos();
+            String json = JSONB.toJson(productos);
+            out.write(json);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType(APPLICATION_JSON);
-        try {
-            // TODO: Asegurarnos que categoria entra sin problemas, es donde da error
-            // Leer la petición
-            Producto producto = JSONB.fromJson(request.getReader(), Producto.class);
-            DAO.crearProducto(producto);
 
-            // Responder
-            response.setStatus(HttpServletResponse.SC_CREATED);
-            response.getWriter().write("{\"message\": \"Producto creado con éxito\"}");
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.getWriter().write("{\"error\": \"Error al crear el producto\"}");
-        }
     }
 
 }
