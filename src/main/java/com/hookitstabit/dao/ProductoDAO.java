@@ -8,15 +8,17 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class ProductoDAO {
-    public void crearProducto(Producto producto) {
+    public Producto crearProducto(Producto producto) {
         Transaction transaction = null;
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.persist(producto);
             transaction.commit();
+            return producto;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
+            return null;
         }
     }
 
