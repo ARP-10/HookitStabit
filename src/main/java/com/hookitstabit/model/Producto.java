@@ -34,12 +34,12 @@ public class Producto {
     @NotNull(message = "El precio es obligatorio")
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precio;
-/*
+
     @ManyToOne(fetch = FetchType.EAGER) // Usamos LAZY porque no necesitamos los datos inmediatamente (la otra opción es EAGER)
     @JoinColumn(name = "id_usuario, nullable = false")
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_categoria", nullable = false)
-    private Categoria categoria;*/
+    private Categoria categoria;
 }
