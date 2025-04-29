@@ -58,6 +58,7 @@ public class ProductoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType(APPLICATION_JSON);
         PrintWriter out = response.getWriter();
 
