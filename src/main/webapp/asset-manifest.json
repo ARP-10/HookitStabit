@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.adaed016.js",
+    "main.js": "/static/js/main.dd8a5f4e.js",
     "static/js/453.54d2a241.chunk.js": "/static/js/453.54d2a241.chunk.js",
     "static/media/Logopeque.png": "/static/media/Logopeque.2005c081be7874956641.png",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.adaed016.js.map": "/static/js/main.adaed016.js.map",
+    "main.dd8a5f4e.js.map": "/static/js/main.dd8a5f4e.js.map",
     "453.54d2a241.chunk.js.map": "/static/js/453.54d2a241.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.adaed016.js"
+    "static/js/main.dd8a5f4e.js"
   ]
 }
