@@ -46,7 +46,7 @@ public class ProductoController extends HttpServlet {
                 }
             } catch (NumberFormatException e) {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                out.write("{\"error\":\"ID inválido\"}");
+                out.write("{\"error\":\"ID invalido\"}");
             }
         } else {
             // Si no hay un ID, se devuelve la lista de productos completa
@@ -82,7 +82,7 @@ public class ProductoController extends HttpServlet {
 
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            out.write("{\"error\":\"Datos del producto inválidos\"}");
+            out.write("{\"error\":\"Datos del producto invalidos\"}");
             e.printStackTrace();
         }
     }

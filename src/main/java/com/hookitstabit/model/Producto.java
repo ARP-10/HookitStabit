@@ -36,7 +36,7 @@ public class Producto {
     private BigDecimal precio;
 
     @ManyToOne(fetch = FetchType.EAGER) // Usamos LAZY porque no necesitamos los datos inmediatamente (la otra opción es EAGER)
-    @JoinColumn(name = "id_usuario, nullable = false")
+    @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.EAGER)

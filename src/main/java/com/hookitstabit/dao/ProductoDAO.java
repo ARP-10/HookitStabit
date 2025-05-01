@@ -10,17 +10,21 @@ import java.util.List;
 public class ProductoDAO {
     public Producto crearProducto(Producto producto) {
         Transaction transaction = null;
-        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.persist(producto);
+            session.save(producto);  // Cambié persist() por save()
             transaction.commit();
             return producto;
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.err.println("Error al guardar el producto: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
     }
+
 
     public List<Producto> obtenterProductos() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
