@@ -6,16 +6,18 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class UsuarioDAO {
+    //TODO: Borrar los metodos que no se usen
 // Crear
     public void crearUsuario(Usuario usuario) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.persist(usuario); // Se traduce como una query
+            session.save(usuario);
             transaction.commit();
         } catch (Exception e) {
             // Si ocurre un error, se revierte la transacción (rollback) y se imprime la traza del error.
             if (transaction != null) transaction.rollback();
+            System.err.println("Error al guardar el usuario: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -24,6 +26,15 @@ public class UsuarioDAO {
     public Usuario obtenerUsuariosId(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Usuario.class, id);
+        }
+    }
+
+    public Usuario obtenerUsuarioPorEmail(String email){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session
+                    .createQuery("FROM Usuario WHERE email = :email", Usuario.class)
+                    .setParameter("email", email)
+                    .uniqueResult();
         }
     }
 
