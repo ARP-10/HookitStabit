@@ -16,6 +16,7 @@ public class UsuarioController {
     }
 
     @POST
+    @Path("/nuevo")
     public Usuario postUsuario(Usuario usuario) {
         DAO.crearUsuario(usuario);
         return usuario;
@@ -27,11 +28,15 @@ public class UsuarioController {
     public Response validarUsuario(Usuario datosLogin) {
         Usuario usuarioExistente = DAO.obtenerUsuarioPorEmail(datosLogin.getEmail());
 
-        if (usuarioExistente != null && usuarioExistente.getPassword().equals(datosLogin.getPassword())) {
-            return Response.ok(usuarioExistente).build();
+        // Muestra el error de email o pass o ambos
+        if (usuarioExistente == null) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("email").build();
+        } else if (!usuarioExistente.getPassword().equals(datosLogin.getPassword())) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("password").build();
         } else {
-            return Response.status(Response.Status.UNAUTHORIZED).entity("Credenciales incorrectas").build();
+            return Response.ok(usuarioExistente).build();
         }
+
     }
 
     @PUT
