@@ -5,6 +5,7 @@ import com.hookitstabit.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoDAO {
@@ -35,6 +36,18 @@ public class ProductoDAO {
     public Producto obtenerProductosId(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Producto.class, id);
+        }
+    }
+
+    public List<Producto> obtenerProductosPorUsuario(int usuarioId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "FROM Producto p WHERE p.usuario.id = :usuarioId";
+            return session.createQuery(hql, Producto.class)
+                    .setParameter("usuarioId", usuarioId)
+                    .list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
 

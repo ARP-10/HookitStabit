@@ -26,7 +26,7 @@ public class ProductoController  {
     }
 
     @PUT
-    @Path("/{id}")
+    @Path("/actualizar/{id}")
     public Producto putProducto(@PathParam("id") int id, Producto producto) {
         DAO.actualizarProducto(producto);
         return producto;
@@ -37,5 +37,12 @@ public class ProductoController  {
     public void deleteProducto(@PathParam("id") int id) {
         DAO.eliminarProducto(id);
     }
+
+    @GET
+    @Path("/usuario/{usuarioId}")
+    public Iterable<Producto> getProductosPorUsuario(@PathParam("usuarioId") int usuarioId) {
+        return DAO.obtenerProductosPorUsuario(usuarioId);
+    }
+
 
 }
