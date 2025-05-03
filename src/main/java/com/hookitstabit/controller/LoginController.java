@@ -6,7 +6,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 @Path("/login")
-public class UsuarioController {
+public class LoginController {
     private static final UsuarioDAO DAO = new UsuarioDAO();
 
     @GET
@@ -36,7 +36,6 @@ public class UsuarioController {
         } else {
             return Response.ok(usuarioExistente).build();
         }
-
     }
 
     @PUT
