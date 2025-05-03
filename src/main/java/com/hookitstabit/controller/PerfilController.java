@@ -20,4 +20,18 @@ public class PerfilController {
 
         return Response.ok(usuario).build();
     }
+
+
+    @PUT
+    @Path("/{id}")
+    public Usuario putUsuario(@PathParam("id") int id, Usuario usuario) {
+        DAO.actualizarUsuario(usuario);
+        return usuario;
+    }
+
+    @DELETE
+    @Path("{id}")
+    public void deleteUsuario(@PathParam("id") int id) {
+        DAO.eliminarUsuario(id);
+    }
 }

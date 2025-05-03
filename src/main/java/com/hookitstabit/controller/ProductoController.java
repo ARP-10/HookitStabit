@@ -25,6 +25,17 @@ public class ProductoController  {
         return producto;
     }
 
-    // TODO: pendiente @PUT y @DELETE
+    @PUT
+    @Path("/{id}")
+    public Producto putProducto(@PathParam("id") int id, Producto producto) {
+        DAO.actualizarProducto(producto);
+        return producto;
+    }
+
+    @DELETE
+    @Path("{id}")
+    public void deleteProducto(@PathParam("id") int id) {
+        DAO.eliminarProducto(id);
+    }
 
 }
