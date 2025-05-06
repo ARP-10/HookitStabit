@@ -51,6 +51,18 @@ public class ProductoDAO {
         }
     }
 
+    public List<Producto> obtenerProductosExcluyendoUsuario(int usuarioId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "FROM Producto p WHERE p.usuario.id != :usuarioId";
+            return session.createQuery(hql, Producto.class)
+                    .setParameter("usuarioId", usuarioId)
+                    .list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
     public void actualizarProducto(Producto producto) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

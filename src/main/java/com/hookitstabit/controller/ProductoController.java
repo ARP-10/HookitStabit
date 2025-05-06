@@ -14,7 +14,13 @@ public class ProductoController  {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/{usuarioId}")
+    public Iterable<Producto> getProductosExcluyendoUsuario(@PathParam("usuarioId") int usuarioId) {
+        return DAO.obtenerProductosExcluyendoUsuario(usuarioId);
+    }
+
+    @GET
+    @Path("/detalles/{id}")
     public Producto getProducto(@PathParam("id") int id) {
         return DAO.obtenerProductosId(id);
     }
