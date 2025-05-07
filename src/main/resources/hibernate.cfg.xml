@@ -23,5 +23,6 @@
         <mapping class="com.hookitstabit.model.Usuario"/>
         <mapping class="com.hookitstabit.model.Categoria"/>
         <mapping class="com.hookitstabit.model.Producto"/>
+        <mapping class="com.hookitstabit.model.Carrito"/>
     </session-factory>
 </hibernate-configuration>
